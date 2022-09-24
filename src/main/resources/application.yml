@@ -1,1 +1,18 @@
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
 
+  datasource:
+    driver-class-name: ${DRIVER_CLASS}
+    url: ${DB_URL}
+    username: ${NAME}
+    password: ${PASSWORD}
+
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create
