@@ -2,18 +2,20 @@ package com.example.todolistv2.domain.auth.data
 
 import com.example.todolistv2.domain.auth.type.Role
 import java.time.LocalDateTime
+import javax.persistence.DiscriminatorValue
+import javax.persistence.Entity
 
+@Entity
+@DiscriminatorValue("admin")
 class Admin(
     accountId: String,
     password: String,
     nickname: String,
-    createdBy: Long,
     createdAt: LocalDateTime
 ): User(
     accountId = accountId,
     password = password,
     nickname = nickname,
     role = Role.ADMIN,
-    createdBy = createdBy,
     createdAt = createdAt
 ) {}
