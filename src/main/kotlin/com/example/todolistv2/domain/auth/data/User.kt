@@ -1,48 +1,42 @@
 package com.example.todolistv2.domain.auth.data
 
 import com.example.todolistv2.domain.auth.type.Role
-import com.example.todolistv2.global.base.entity.BaseAuthorEntity
+import com.example.todolistv2.global.base.entity.BaseTimeEntity
 import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
 @Table(name = "user")
+@DiscriminatorColumn(name = "role")
 abstract class User(
     accountId: String,
     password: String,
     nickname: String,
     role: Role,
-    createdBy: Long,
     createdAt: LocalDateTime
-): BaseAuthorEntity(
-    createdBy = createdBy,
+): BaseTimeEntity(
     createdAt = createdAt
 ) {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
-    @Column(name = "account_id")
+    @Column(name = "account_id", nullable = false)
     var accountId = accountId
         protected set
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     var password = password
         protected set
 
-    @Column(name = "nickname")
+    @Column(name = "nickname", nullable = false)
     var nickname = nickname
         protected set
 
-    @ElementCollection
-    var roleList: MutableList<Role> = ArrayList()
+    @Column(name = "role", nullable = false)
+    var role: Role = role
         protected set
 
-    init {
-        this.roleList.add(role)
-    }
-
-    fun updated(id: Long, time: LocalDateTime){
-        this.updatedBy = id
+    fun updated(time: LocalDateTime){
         this.updatedAt = time
     }
 }
