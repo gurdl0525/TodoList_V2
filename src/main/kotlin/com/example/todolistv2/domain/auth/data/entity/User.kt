@@ -1,6 +1,6 @@
-package com.example.todolistv2.domain.auth.data
+package com.example.todolistv2.domain.auth.data.entity
 
-import com.example.todolistv2.domain.auth.type.Role
+import com.example.todolistv2.domain.auth.data.entity.type.Role
 import com.example.todolistv2.global.base.entity.BaseTimeEntity
 import java.time.LocalDateTime
 import javax.persistence.*
@@ -38,5 +38,9 @@ abstract class User(
 
     fun updated(time: LocalDateTime){
         this.updatedAt = time
+    }
+
+    fun editNickname(nickname: String){
+        this.nickname = nickname
     }
 }
