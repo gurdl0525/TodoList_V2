@@ -1,6 +1,6 @@
-package com.example.todolistv2.domain.auth.data
+package com.example.todolistv2.domain.auth.data.entity
 
-import com.example.todolistv2.domain.auth.type.Role
+import com.example.todolistv2.domain.auth.data.entity.type.Role
 import java.time.LocalDateTime
 import javax.persistence.DiscriminatorValue
 import javax.persistence.Entity
