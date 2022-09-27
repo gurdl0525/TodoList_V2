@@ -9,8 +9,10 @@ import com.example.todolistv2.global.util.UserFacade
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
+import javax.transaction.Transactional
 
 @Service
+@Transactional
 class GeneralServiceImpl(
     private val userRepository: UserRepository<General>,
     private val passwordEncoder: PasswordEncoder,
