@@ -24,10 +24,10 @@ class General(
     createdAt = createdAt
 ) {
     @OneToMany(mappedBy = "user", cascade = [CascadeType.REMOVE])
-    var todoList: MutableList<Todo>? = null
+    var todoList: MutableList<Todo> = ArrayList()
         protected set
 
     fun addTodoList(todo: Todo){
-        this.todoList!!.add(todo)
+        this.todoList.add(todo)
     }
 }
