@@ -12,7 +12,7 @@ import org.springframework.web.cors.CorsUtils
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfiguration: WebSecurityConfigurerAdapter() {
+class SecurityConfig: WebSecurityConfigurerAdapter() {
 
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
