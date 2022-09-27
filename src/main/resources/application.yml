@@ -16,3 +16,10 @@ spring:
         format_sql: true
     hibernate:
       ddl-auto: update
+jwt:
+  header: ${HEADER}
+  secretKey: ${SECRET}
+  accessExpiredAt: ${ACCESS}
+  accessClaim: ${ACCESS_CLAIM}
+  refreshExpiredAt: ${REFRESH}
+  refreshClaim: ${REFRESH_CLAIM}
