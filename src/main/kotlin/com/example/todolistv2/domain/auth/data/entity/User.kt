@@ -32,6 +32,7 @@ abstract class User(
     var nickname = nickname
         protected set
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     var role: Role = role
         protected set
