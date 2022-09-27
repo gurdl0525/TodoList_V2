@@ -11,11 +11,16 @@ import org.springframework.stereotype.Component
 class UserFacade(
     private val userRepository: UserRepository<User>
 ) {
-    fun getCurrentUser(): User {
-        val subject = SecurityContextHolder.getContext()
+
+    fun getSubject(): String {
+        return SecurityContextHolder.getContext()
             .authentication
             .credentials
-            .toString().toLong()
+            .toString()
+    }
+
+    fun getCurrentUser(): User {
+        val subject = getSubject().toLong()
         return userRepository.findByIdOrNull(subject)
             ?:(throw UnAuthorizedException(subject.toString()))
     }
