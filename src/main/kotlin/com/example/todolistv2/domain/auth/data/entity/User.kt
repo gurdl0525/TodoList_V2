@@ -7,7 +7,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "user")
-@DiscriminatorColumn(name = "role")
+@DiscriminatorColumn(name = "user_type")
 abstract class User(
     accountId: String,
     password: String,
